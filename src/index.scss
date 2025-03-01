@@ -118,6 +118,7 @@ h1 {
     background-color: $input-bg;
     text-align: center;
     text-transform: uppercase;
+    
   }
 }
 
@@ -138,6 +139,7 @@ h1 {
   margin-left: 1rem;
   font-size: 1rem;
   color: $player-name-color;
+  //font-family: 'Roboto Slab', sans-serif;
 }
 
 .game-board {
@@ -257,5 +259,70 @@ h1 {
     color: $game-hints-button-color;
     font: inherit;
     margin-top: 1.5rem;
+  }
+}
+
+@keyframes slide-in-from-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-30%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-text {
+  0% {
+    color: $player-name-color;
+  }
+  50% {
+    color: $player-name-pulse-color;
+  }
+  100% {
+    color: $player-name-color;
+  }
+}
+
+@keyframes pulse-text-size {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    border-color: $highlight-color;
+    box-shadow: $pulse-shadow-0;
+  }
+  50% {
+    border-color: #f8c031;
+    box-shadow: $pulse-shadow-50;
+  }
+  100% {
+    border-color: $highlight-color;
+    box-shadow: $pulse-shadow-100;
+  }
+}
+
+/* Fancy animation for showing the "Game Over" element */
+@keyframes pop-in {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
   }
 }

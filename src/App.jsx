@@ -7,10 +7,10 @@ function App() {
 		<main>
 			<div className="game-container">
 				<ol className="players">
-          <Player name={`Player 1`} symbol={`X`} />
-					<Player name={`Player 2`} symbol={`O`} />
+          <Player initialName={`Player 1`} symbol={`X`} />
+					<Player initialName={`Player 2`} symbol={`O`} />
 				</ol>
-				GAME
+				GAME BOARD
 			</div>
 			LOG
 		</main>

@@ -30,6 +30,7 @@ $highlight-animation-color: #f8c031;
 $button-text-color: #c3ba78;
 $button-hover-color: #f8ca31;
 $player-name-color: #e1dec7;
+$player-name-pulse-color: #9f9d83;
 $input-bg: #46432f;
 $game-board-bg: #aca788;
 $game-over-bg: rgba(40, 38, 23, 0.95);
@@ -38,3 +39,7 @@ $log-text-color: #3f3b00;
 $log-highlighted-bg: #3f3b00;
 $game-hints-color: #46432f;
 $game-hints-button-color: #23221f;
+
+$pulse-shadow-0: 0 0 0 0.5rem rgba(248, 165, 49, 0);
+$pulse-shadow-50:0 0 0 0.5rem rgba(248, 165, 49, 0);
+$pulse-shadow-100:0 0 0 0 rgba(246, 227, 90, 0);;
