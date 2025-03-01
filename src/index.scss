@@ -1,0 +1,261 @@
+@use "_variables" as *;
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Roboto+Slab:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Roboto Slab', sans-serif;
+  line-height: 1.5;
+  color: $primary-text-color;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: radial-gradient(circle at top, $background-gradient-start, $background-gradient-end), url('bg.png');
+  background-repeat: repeat;
+  background-size: 100% 100%, 30% 30%, 100% 100%;
+  min-height: 100vh; //110rem;
+}
+
+.header {
+  text-align: center;
+
+  h1 {
+    font-family: 'Caprasimo', cursive;
+    font-size: 3rem;
+    margin: 0 auto 1rem auto;
+    color: $header-text-color;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, .5);
+  }
+
+  img {
+    width: 8rem;
+    object-fit: contain;
+    margin: 1rem auto .25rem auto;
+    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
+  }
+}
+
+h1 {
+  font-family: 'Caprasimo', cursive;
+  font-size: 3rem;
+  margin: 3rem auto 1rem auto;
+  color: $header-text-color;
+}
+
+.game-container {
+  max-width: 45rem;
+  margin: 3rem auto;
+  padding: 2rem;
+  border-radius: 6px;
+  background: $game-container-bg;
+  box-shadow: 0 0 20px $game-container-shadow;
+  position: relative;
+}
+
+.players {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+  &.highlight-player li.active {
+    border-color: $highlight-color;
+    animation: pulse 2s infinite ease-in-out;
+  }
+
+  &.highlight-player li.active .player-name,
+  &.highlight-player li.active .player-symbol {
+    color: $highlight-color;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    border: 2px solid transparent;
+  }
+
+  button {
+    width: 3rem;
+    border: none;
+    background: none;
+    color: $button-text-color;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: color 0.2s;
+    padding: 0.5rem 0.25rem 0.25rem 0.25rem;
+    text-align: center;
+    }
+  
+    &:hover {
+      color: $button-hover-color;
+    }
+}
+
+.player {
+  border: 2px solid transparent;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-weight: bold;
+
+  input {
+    font: inherit;
+    font-size: 1rem;
+    width: 10rem;
+    border: none;
+    padding: 0.5rem;
+    animation: pulse-text 2s infinite;
+    background-color: $input-bg;
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
+
+.player-name {
+  display: inline-block;
+  width: 10rem;
+  font-size: 1rem;
+  color: $player-name-color;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0.5rem;
+  border-radius: 4px;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+.player-symbol {
+  margin-left: 1rem;
+  font-size: 1rem;
+  color: $player-name-color;
+}
+
+.game-board {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin: 3rem 0;
+  padding: 0;
+  flex-direction: column;
+
+  ol {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  button {
+    width: 8rem;
+    height: 8rem;
+    border: none;
+    background: $game-board-bg;
+    color: $header-text-color;
+    font-size: 5rem;
+    cursor: pointer;
+    font-family: 'Caprasimo', cursive;
+    padding: 1rem;
+  }
+}
+
+.game-over {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $game-over-bg;
+  animation: pop-in 0.5s cubic-bezier(0.68, -0.55, 0.65, 0.52) forwards;
+
+  h2 {
+    font-family: 'Caprasimo', cursive;
+    font-size: 4rem;
+    text-align: center;
+    color: $game-over-text-color;
+    margin: 0;
+  }
+
+  p {
+    font-size: 2rem;
+    text-align: center;
+    color: $player-name-color;
+  }
+
+  button {
+    display: block;
+    margin: 0 auto;
+    font-size: 1.5rem;
+    background: none;
+    border: 2px solid $game-over-text-color;
+    color: $game-over-text-color;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s, color 0.2s;
+    box-shadow: 0 0 8px rgba(255, 187, 0, 0.4);
+
+    &:hover {
+      background: $game-over-text-color;
+      color: $header-text-color;
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(255, 187, 0, 0.8);
+    }
+  }
+}
+
+.log {
+  max-width: 20rem;
+  color: $log-text-color;
+  list-style: none;
+  margin: 2rem auto;
+  padding: 0;
+  text-align: center;
+
+  li {
+    border-radius: 4px;
+    animation: slide-in-from-left 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+    margin: 0.75rem;
+
+    &.highlighted {
+      background-color: $log-highlighted-bg;
+      color: white;
+    }
+  }
+}
+
+.game-hints {
+  text-align: center;
+  color: $game-hints-color;
+
+  h2 {
+    font-family: 'Caprasimo', cursive;
+    font-size: 2rem;
+    margin: 0;
+  }
+
+  button {
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    color: $game-hints-button-color;
+    font: inherit;
+    margin-top: 1.5rem;
+  }
+}
