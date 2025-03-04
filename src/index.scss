@@ -178,7 +178,7 @@ ol {
     height: 5rem;
     border: none;
     background: $game-board-bg;
-    color: $header-text-color;
+    color: $gameboard-button-text;
     font-size: 5rem;
     cursor: pointer;
     font-family: 'Caprasimo', cursive;
@@ -186,7 +186,7 @@ ol {
     transition: background-color 0.3s ease;
 
     &:hover {
-      background: color.mix(#ffffff, $game-board-bg, 30%);
+      background: color.mix($header-text-color, $game-board-bg, 30%);
     }
   }
 }
@@ -255,7 +255,7 @@ ol {
 
     &.highlighted {
       background-color: $log-highlighted-bg;
-      color: white;
+      color: $header-text-color;
     }
   }
 }
