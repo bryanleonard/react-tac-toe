@@ -1,4 +1,5 @@
 @use "_variables" as *;
+@use "sass:color";
 @import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Roboto+Slab:wght@400;700&display=swap');
 
 * {
@@ -29,6 +30,7 @@ body {
   align-items: center;  /* Vertical centering */
   justify-content: center; /* Horizontal centering */
   gap: 0; /* Space between image and text */
+  margin: 1rem auto 0 auto;
 
   h1 {
     font-family: 'Caprasimo', cursive;
@@ -41,7 +43,7 @@ body {
   img {
     width: 5rem;
     object-fit: contain;
-    margin: 1rem auto .25rem auto;
+    margin: 0 auto;
     filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
   }
 }
@@ -61,7 +63,7 @@ ol {
 
 .game-container {
   max-width: 100%;//45rem;
-  margin: 3rem auto;
+  margin: 2rem auto;
   padding: 1rem;
   border-radius: 6px;
   background: $game-container-bg;
@@ -157,8 +159,8 @@ ol {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
-  margin: 3rem 0;
+  gap: 2rem;
+  margin: 2rem 0;
   padding: 0;
   flex-direction: column;
 
@@ -181,6 +183,11 @@ ol {
     cursor: pointer;
     font-family: 'Caprasimo', cursive;
     padding: 1rem;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background: color.mix(#ffffff, $game-board-bg, 30%);
+    }
   }
 }
 
@@ -222,13 +229,13 @@ ol {
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.2s, color 0.2s;
-    box-shadow: 0 0 8px rgba(255, 187, 0, 0.4);
+    box-shadow: 0 0 8px $brown-rgba;
 
     &:hover {
       background: $game-over-text-color;
       color: $header-text-color;
       transform: scale(1.1);
-      box-shadow: 0 0 20px rgba(255, 187, 0, 0.8);
+      box-shadow: 0 0 20px $orange-rgba;
     }
   }
 }
@@ -349,18 +356,19 @@ ol {
 
   .header {
     text-align: center;
-    display: block;
+    max-width: 40rem;
   
     h1 {
       font-size: 3rem;
-      margin: 0 auto 1rem auto;
+      margin: 0 auto;
 
     }
   
     img {
       width: 8rem;
       max-height: unset;
-
+      margin-bottom: 0;
+      
     }
   }
 
@@ -379,13 +387,12 @@ ol {
   
   .game-container {
     max-width: 40rem;//45rem;
-    margin: 3rem auto;
+    margin: 2rem auto;
     padding: 1rem 2rem;
   }
 
   .game-board {
-    gap: 1rem;
-    margin: 3rem 0;
+    gap: 2rem;
   
     button {
       width: 8rem;
