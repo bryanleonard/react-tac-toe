@@ -36,8 +36,8 @@ $input-bg: #46432f;
 $game-board-bg: #aca788;
 $game-over-bg: rgba(40, 38, 23, 0.95);
 $game-over-text-color: #fcd256;
-$log-text-color: #3f3b00;
-$log-highlighted-bg: #3f3b00;
+$log-text-color: $primary-text-color; //#3f3b00;
+$log-highlighted-bg: $highlight-color; //#3f3b00;
 $game-hints-color: #46432f;
 $game-hints-button-color: #23221f;
 
