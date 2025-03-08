@@ -9,6 +9,8 @@ then
 
 `npm run dev`
 
+View demo at [https://bryanleonard.github.io/react-tac-toe](https://bryanleonard.github.io/react-tac-toe)
+
 ----------------
 
 # React + Vite
