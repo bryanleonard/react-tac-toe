@@ -1,405 +1,432 @@
 @use "_variables" as *;
 @use "sass:color";
-@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Roboto+Slab:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Caprasimo&family=Roboto+Slab:wght@400;700&display=swap");
 
 * {
-  box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
 }
 
 html {
-  font-family: 'Roboto Slab', sans-serif;
-  line-height: 1.5;
-  color: $primary-text-color;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+	font-family: "Roboto Slab", sans-serif;
+	line-height: 1.5;
+	color: $primary-text-color;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
+	min-height: 100%;
 }
 
 body {
-  background: radial-gradient(circle at top, $background-gradient-start, $background-gradient-end), url('bg.png');
-  background-repeat: repeat;
-  background-size: 100% 100%, 100% 100%, 100% 100%;
-  min-height: 100vh; //110rem;
+	background: radial-gradient(
+			circle at top,
+			$background-gradient-start,
+			$background-gradient-end
+		),
+		url("bg.png");
+	background-repeat: repeat;
+	margin: 0;
+	padding: 0;
+	//background-size: 100% 100%, 100% 100%, 100% 100%;
+	// height: 100%;
+	// min-height: 100vh; //110rem;
 }
 
 .header {
-  text-align: center;
-  display: flex;
-  align-items: center;  /* Vertical centering */
-  justify-content: center; /* Horizontal centering */
-  gap: 0; /* Space between image and text */
-  margin: 1rem auto 0 auto;
+	text-align: center;
+	display: flex;
+	align-items: center; /* Vertical centering */
+	justify-content: center; /* Horizontal centering */
+	gap: 0; /* Space between image and text */
+	margin: 1rem auto 0 auto;
 
-  h1 {
-    font-family: 'Caprasimo', cursive;
-    font-size: 2rem;
-    margin: 0 auto 0 auto;
-    color: $header-text-color;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, .5);
-  }
+	h1 {
+		font-family: "Caprasimo", cursive;
+		font-size: 2rem;
+		margin: 0 auto 0 auto;
+		color: $header-text-color;
+		text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+	}
 
-  img {
-    width: 5rem;
-    object-fit: contain;
-    margin: 0 auto;
-    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
-  }
+	img {
+		width: 5rem;
+		object-fit: contain;
+		margin: 0 auto;
+		filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
+	}
 }
 
 h1 {
-  font-family: 'Caprasimo', cursive;
-  font-size: 3rem;
-  margin: 3rem auto 1rem auto;
-  color: $header-text-color;
+	font-family: "Caprasimo", cursive;
+	font-size: 3rem;
+	margin: 3rem auto 1rem auto;
+	color: $header-text-color;
 }
 
 ol {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+	list-style: none;
+	margin: 0;
+	padding: 0;
 }
 
 .game-container {
-  max-width: 100%;//45rem;
-  margin: 2rem auto;
-  padding: 1rem;
-  border-radius: 6px;
-  background: $game-container-bg;
-  box-shadow: 0 0 20px $game-container-shadow;
-  position: relative;
+	max-width: 100%; //45rem;
+	margin: 2rem 1rem;
+	padding: 1rem 1rem 3rem 1rem;
+	border-radius: 6px;
+	background: $game-container-bg;
+	box-shadow: 0 0 20px $game-container-shadow;
+	position: relative;
 }
 
-
 .players {
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0;
-  display: block;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
+	list-style: none;
+	padding: 0;
+	margin: 1rem 0;
+	display: block;
+	justify-content: center;
+	align-items: center;
+	gap: 2rem;
 
-  &.highlight-player li.active {
-    border-color: $highlight-color;
-    animation: pulse 2s infinite ease-in-out;
-  }
+	&.highlight-player li.active {
+		border-color: $highlight-color;
+		animation: pulse 2s infinite ease-in-out;
+	}
 
-  &.highlight-player li.active .player-name,
-  &.highlight-player li.active .player-symbol {
-    color: $highlight-color;
-  }
+	&.highlight-player li.active .player-name,
+	&.highlight-player li.active .player-symbol {
+		color: $highlight-color;
+	}
 
-  li {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    border: 2px solid transparent;
-  }
+	li {
+		display: flex;
+		align-items: center;
+		width: 100%;
+		border: 2px solid transparent;
+	}
 
-  button {
-    width: 3rem;
-    border: none;
-    background: none;
-    color: $button-text-color;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: color 0.2s;
-    padding: 0.25rem;//0.5rem 0.25rem 0.25rem 0.25rem;
-    text-align: center;
-    }
-  
-    &:hover {
-      color: $button-hover-color;
-    }
+	button {
+		width: 3rem;
+		border: none;
+		background: none;
+		color: $button-text-color;
+		font-size: 0.9rem;
+		cursor: pointer;
+		transition: color 0.2s;
+		padding: 0.25rem; //0.5rem 0.25rem 0.25rem 0.25rem;
+		text-align: center;
+	}
+
+	&:hover {
+		color: $button-hover-color;
+	}
 }
 
 .player {
-  border: 2px solid transparent;
-  padding: 0.5rem;
-  border-radius: 4px;
-  font-weight: bold;
+	border: 2px solid transparent;
+	padding: 0.5rem;
+	border-radius: 4px;
+	font-weight: bold;
 
-  input {
-    font: inherit;
-    font-size: 1rem;
-    width: 10rem;
-    border: none;
-    padding: 0.5rem;
-    animation: pulse-text 2s infinite;
-    background-color: $input-bg;
-    text-align: center;
-    text-transform: uppercase;
-    
-  }
+	input {
+		font: inherit;
+		font-size: 1rem;
+		width: 10rem;
+		border: none;
+		padding: 0.5rem;
+		animation: pulse-text 2s infinite;
+		background-color: $input-bg;
+		text-align: center;
+		text-transform: uppercase;
+	}
 }
 
 .player-name {
-  display: inline-block;
-  width: 13rem;
-  font-size: 1rem;
-  color: $player-name-color;
-  text-transform: uppercase;
-  margin: 0;
-  padding: 0.5rem;
-  border-radius: 4px;
-  text-overflow: ellipsis;
-  text-align: center;
+	display: inline-block;
+	width: 13rem;
+	font-size: 1rem;
+	color: $player-name-color;
+	text-transform: uppercase;
+	margin: 0;
+	padding: 0.5rem;
+	border-radius: 4px;
+	text-overflow: ellipsis;
+	text-align: center;
 }
 
 .player-symbol {
-  margin-left: 1rem;
-  font-size: 1rem;
-  color: $player-name-color;
-  //font-family: 'Roboto Slab', sans-serif;
+	margin-left: 1rem;
+	font-size: 1rem;
+	color: $player-name-color;
+	//font-family: 'Roboto Slab', sans-serif;
 }
 
 .game-board {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  margin: 2rem 0;
-  padding: 0;
-  flex-direction: column;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 2rem;
+	margin: 2rem 0;
+	padding: 0;
+	flex-direction: column;
 
-  ol {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    margin: 0;
-    padding: 0;
-  }
+	ol {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 2rem;
+		margin: 0;
+		padding: 0;
+	}
 
-  button {
-    width: 5rem;
-    height: 5rem;
-    border: none;
-    background: $game-board-bg;
-    color: $gameboard-button-text;
-    font-size: 5rem;
-    cursor: pointer;
-    font-family: 'Caprasimo', cursive;
-    padding: 1rem;
-    transition: background-color 0.3s ease;
+	button {
+		width: 5rem;
+		height: 5rem;
+		border: none;
+		background: $game-board-bg;
+		color: $gameboard-button-text;
+		font-size: 3rem;
+		line-height: 1;
+		cursor: pointer;
+		font-family: "Caprasimo", cursive;
+		padding: 1rem;
+		transition: background-color 0.3s ease;
 
-    &:hover {
-      background: color.mix($header-text-color, $game-board-bg, 30%);
-    }
-  }
+		&:hover {
+			background: color.mix($header-text-color, $game-board-bg, 30%);
+		}
+
+		&[disabled] {
+			background: $game-board-bg;;
+			cursor: default;
+			// color: $header-text-color;
+			// transform: scale(1.1);
+			// box-shadow: 0 0 20px $orange-rgba;
+		}
+	}
 }
 
 .game-over {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: $game-over-bg;
-  animation: pop-in 0.5s cubic-bezier(0.68, -0.55, 0.65, 0.52) forwards;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: $game-over-bg;
+	animation: pop-in 0.5s cubic-bezier(0.68, -0.55, 0.65, 0.52) forwards;
 
-  h2 {
-    font-family: 'Caprasimo', cursive;
-    font-size: 4rem;
-    text-align: center;
-    color: $game-over-text-color;
-    margin: 0;
-  }
+	h2 {
+		font-family: "Caprasimo", cursive;
+		font-size: 4rem;
+		text-align: center;
+		color: $game-over-text-color;
+		margin: 0;
+	}
 
-  p {
-    font-size: 2rem;
-    text-align: center;
-    color: $player-name-color;
-  }
+	p {
+		font-size: 2rem;
+		text-align: center;
+		color: $player-name-color;
+		
+	}
 
-  button {
-    display: block;
-    margin: 0 auto;
-    font-size: 1.5rem;
-    background: none;
-    border: 2px solid $game-over-text-color;
-    color: $game-over-text-color;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.2s, color 0.2s;
-    box-shadow: 0 0 8px $brown-rgba;
+	button {
+		display: block;
+		margin: 6rem auto 0 auto;
+		font-size: 1.5rem;
+		background: none;
+		border: 2px solid $game-over-text-color;
+		color: $game-over-text-color;
+		padding: 0.5rem 1rem;
+		border-radius: 4px;
+		cursor: pointer;
+		transition: all 0.2s, color 0.2s;
+		box-shadow: 0 0 8px $brown-rgba;
 
-    &:hover {
-      background: $game-over-text-color;
-      color: $header-text-color;
-      transform: scale(1.1);
-      box-shadow: 0 0 20px $orange-rgba;
-    }
-  }
+		&:hover {
+			background: $game-over-text-color;
+			color: $header-text-color;
+			transform: scale(1.1);
+			box-shadow: 0 0 8px $orange-rgba;
+		}
+	}
 }
 
 .log {
-  max-width: 20rem;
-  color: $log-text-color;
-  list-style: none;
-  margin: 2rem auto;
-  padding: 0;
-  text-align: center;
+	max-width: 20rem;
+	color: $log-text-color;
+	list-style: none;
+	margin: 2rem auto;
+	padding: 0;
+	text-align: center;
 
-  li {
-    border-radius: 4px;
-    animation: slide-in-from-left 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
-    margin: 0.75rem;
+	li {
+		border-radius: 4px;
+		animation: slide-in-from-left 1s cubic-bezier(0.075, 0.82, 0.165, 1)
+			forwards;
+		margin: 0.75rem;
 
-    &.highlighted {
-      background-color: $log-highlighted-bg;
-      color: $header-text-color;
-    }
-  }
+		&.highlighted {
+			background-color: $log-highlighted-bg;
+			color: $header-text-color;
+		}
+	}
 }
 
 .game-hints {
-  text-align: center;
-  color: $game-hints-color;
+	text-align: center;
+	color: $game-hints-color;
 
-  h2 {
-    font-family: 'Caprasimo', cursive;
-    font-size: 2rem;
-    margin: 0;
-  }
+	h2 {
+		font-family: "Caprasimo", cursive;
+		font-size: 2rem;
+		margin: 0;
+	}
 
-  button {
-    cursor: pointer;
-    border: none;
-    background: transparent;
-    color: $game-hints-button-color;
-    font: inherit;
-    margin-top: 1.5rem;
-  }
+	button {
+		cursor: pointer;
+		border: none;
+		background: transparent;
+		color: $game-hints-button-color;
+		font: inherit;
+		margin-top: 1.5rem;
+	}
+}
+
+.footer {
+	text-align: center;
+	padding: 0 2rem;
+	font-size: 0.8rem;
+
+	p {
+		margin: 0 auto;
+	}
 }
 
 @keyframes slide-in-from-left {
-  0% {
-    opacity: 0;
-    transform: translateX(-30%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
+	0% {
+		opacity: 0;
+		transform: translateX(-30%);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
 }
 
 @keyframes pulse-text {
-  0% {
-    color: $player-name-color;
-  }
-  50% {
-    color: $player-name-pulse-color;
-  }
-  100% {
-    color: $player-name-color;
-  }
+	0% {
+		color: $player-name-color;
+	}
+	50% {
+		color: $player-name-pulse-color;
+	}
+	100% {
+		color: $player-name-color;
+	}
 }
 
 @keyframes pulse-text-size {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-  }
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.05);
+	}
+	100% {
+		transform: scale(1);
+	}
 }
 
 @keyframes pulse {
-  0% {
-    border-color: $highlight-color;
-    box-shadow: $pulse-shadow-0;
-  }
-  50% {
-    border-color: #f8c031;
-    box-shadow: $pulse-shadow-50;
-  }
-  100% {
-    border-color: $highlight-color;
-    box-shadow: $pulse-shadow-100;
-  }
+	0% {
+		border-color: $highlight-color;
+		box-shadow: $pulse-shadow-0;
+	}
+	50% {
+		border-color: #f8c031;
+		box-shadow: $pulse-shadow-50;
+	}
+	100% {
+		border-color: $highlight-color;
+		box-shadow: $pulse-shadow-100;
+	}
 }
 
 /* Fancy animation for showing the "Game Over" element */
 @keyframes pop-in {
-  0% {
-    transform: scale(0);
-    opacity: 0;
-  }
-  80% {
-    transform: scale(1.1);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1);
-  }
+	0% {
+		transform: scale(0);
+		opacity: 0;
+	}
+	80% {
+		transform: scale(1.1);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(1);
+	}
 }
 
-
-
 @media (min-width: 576px) {
-  /* sm styles */
-  body {
-    background-size: 100% 100%, 30% 30%, 100% 100%;
-    min-height: 100vh;
-  }
+	/* sm styles */
 
-  .header {
-    text-align: center;
-    max-width: 40rem;
-  
-    h1 {
-      font-size: 3rem;
-      margin: 0 auto;
+	.header {
+		text-align: center;
+		max-width: 40rem;
 
-    }
-  
-    img {
-      width: 8rem;
-      max-height: unset;
-      margin-bottom: 0;
-      
-    }
-  }
+		h1 {
+			font-size: 3rem;
+			margin: 0 auto;
+		}
 
-  .players {
-    display: flex;
-  
-    li {
-      width: 50%;
-    }
-  }
+		img {
+			width: 8rem;
+			max-height: unset;
+			margin-bottom: 0;
+		}
+	}
 
-  .player-name {
-    width: 10rem;
-  }
+	.players {
+		display: flex;
 
-  
-  .game-container {
-    max-width: 40rem;//45rem;
-    margin: 2rem auto;
-    padding: 1rem 2rem;
-  }
+		li {
+			width: 50%;
+		}
+	}
 
-  .game-board {
-    gap: 2rem;
-  
-    button {
-      width: 8rem;
-      height: 8rem;
-      padding: 1rem;
-    }
-  }
+	.player-name {
+		width: 10rem;
+	}
+
+	.game-container {
+		max-width: 40rem; //45rem;
+		margin: 2rem auto;
+		padding: 1rem 2rem;
+	}
+
+	.game-board {
+		gap: 2rem;
+
+		button {
+			width: 8rem;
+			height: 8rem;
+			padding: 1rem;
+			font-size: 5rem;
+		}
+	}
+
+	.footer {
+		font-size: 1rem;
+		padding-bottom: 1rem;
+	}
 }
 
 // /* Medium devices (tablets, 768px and up) */
@@ -421,5 +448,3 @@ ol {
 // @media (min-width: 1400px) {
 //   /* xxl styles */
 // }
-
-

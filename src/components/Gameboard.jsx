@@ -1,12 +1,12 @@
 
-const initialGameBoard = [
-	[null, null, null],
-	[null, null, null],
-	[null, null, null]
-];
+// const initialGameBoard = [
+// 	[null, null, null],
+// 	[null, null, null],
+// 	[null, null, null]
+// ];
 
 // export default function Gameboard({ onSelectSquare, activePlayerSymbol }) {
-export default function Gameboard({ onSelectSquare, turns }) {
+export default function Gameboard({ onSelectSquare, board }) {
 
 	// const [gameBoard, setGameBoard] = useState(initialGameBoard);
 
@@ -25,25 +25,27 @@ export default function Gameboard({ onSelectSquare, turns }) {
 	// 	onSelectSquare();
 	// }
 
-	// Let's get some derive state action going...
-	let gameBoard = initialGameBoard;
+	// // Let's get some derive state action going...
+	// let gameBoard = initialGameBoard;
 
-	for (const turn of turns) {
-		const { square, player } = turn;
-		const { row, col } = square;
+	// for (const turn of turns) {
+	// 	const { square, player } = turn;
+	// 	const { row, col } = square;
 
-		gameBoard[row][col] = player;
-	}
+	// 	gameBoard[row][col] = player;
+	// }
 
 	return (
 		<ol className="game-board">
-			{gameBoard.map((row, rowIndex) => (
+			{board.map((row, rowIndex) => (
 				<li key={rowIndex}>
 					<ol>
 						{row.map((playerSymbol, colIndex) => (
 							<li key={colIndex}>
 								{/* <button onClick={() => handleSelectedSquare(rowIndex, colIndex)}>{playerSymbol}</button> */}
-								<button onClick={() => onSelectSquare(rowIndex, colIndex)}>{playerSymbol}</button>
+								<button onClick={() => onSelectSquare(rowIndex, colIndex)} disabled={playerSymbol !== null}>
+									{playerSymbol}
+								</button>
 							</li>
 						))}
 					</ol>
