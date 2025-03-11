@@ -198,6 +198,7 @@ ol {
 		&[disabled] {
 			background: $game-board-bg;
 			cursor: default;
+		}
 	}
 }
 
@@ -226,7 +227,6 @@ ol {
 		font-size: 2rem;
 		text-align: center;
 		color: $player-name-color;
-		
 	}
 
 	button {
@@ -420,23 +420,3 @@ ol {
 		padding-bottom: 1rem;
 	}
 }
-
-// /* Medium devices (tablets, 768px and up) */
-// @media (min-width: 768px) {
-//   /* md styles */
-// }
-
-// /* Large devices (desktops, 992px and up) */
-// @media (min-width: 992px) {
-//   /* lg styles */
-// }
-
-// /* Extra large devices (large desktops, 1200px and up) */
-// @media (min-width: 1200px) {
-//   /* xl styles */
-// }
-
-// /* Extra extra large devices (larger desktops, 1400px and up) */
-// @media (min-width: 1400px) {
-//   /* xxl styles */
-// }

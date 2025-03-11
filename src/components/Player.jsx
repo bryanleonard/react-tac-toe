@@ -1,19 +1,24 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from "react";
 
-export default function Player({initialName, symbol, isActive,  onChangeName}) {
-	const [ playerName, setPlayerName ] = useState(initialName);
-	const [ isEditing, setIsEditing ] = useState(false);
+export default function Player({
+	initialName,
+	symbol,
+	isActive,
+	onChangeName,
+}) {
+	const [playerName, setPlayerName] = useState(initialName);
+	const [isEditing, setIsEditing] = useState(false);
 
 	useEffect(() => {
-    // Focus the input element when isEditing becomes true
-    if (isEditing && inputRef.current) {
-      inputRef.current.focus();
-    }
-  }, [isEditing]);
+		// Focus the input element when isEditing becomes true
+		if (isEditing && inputRef.current) {
+			inputRef.current.focus();
+		}
+	}, [isEditing]);
 
 	function handleEditClick() {
-		setIsEditing(prevState => !prevState);
-		
+		setIsEditing((prevState) => !prevState);
+
 		if (isEditing) {
 			onChangeName(symbol, playerName);
 		}
@@ -28,19 +33,25 @@ export default function Player({initialName, symbol, isActive,  onChangeName}) {
 	//let buttonContent = <button onClick={() => handleEditClick(true)}>Edit</button>
 
 	if (isEditing) {
-		playerContent = <input type="text" required value={playerName} ref={inputRef} onChange={handleChange} />;
+		playerContent = (
+			<input
+				type="text"
+				required
+				value={playerName}
+				ref={inputRef}
+				onChange={handleChange}
+			/>
+		);
 		//buttonContent = <button onClick={() => handleEditClick(false)}>Save</button>
 	}
 
 	return (
-		<li className={isActive ? 'active' : undefined}>
+		<li className={isActive ? "active" : undefined}>
 			<span className="player">
 				{playerContent}
 				<span className="player-symbol">{symbol}</span>
 			</span>
-			<button onClick={handleEditClick}>
-				{isEditing ? 'Save' : 'Edit'}
-			</button>
+			<button onClick={handleEditClick}>{isEditing ? "Save" : "Edit"}</button>
 		</li>
 	);
 }
